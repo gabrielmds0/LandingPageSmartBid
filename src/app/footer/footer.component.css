@@ -1,0 +1,158 @@
+/* Ensure full viewport height for proper sticky footer */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content (push footer to the bottom if content is short) */
+body > *:not(.footer) {
+    flex: 1; /* Pushes footer to the bottom */
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #171b1d; /* Dark background */
+    color: #b3b3b3; /* Light grey text color */
+    padding: 2rem 1rem;
+    width: 100%; /* Ensure full width */
+    margin: 0; /* Remove any margin */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    font-family: Arial, sans-serif;
+}
+
+/* Footer content layout */
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Space out sections on larger screens */
+    max-width: 1200px;
+    margin: 0 auto; /* Center the content within the footer */
+    flex-wrap: wrap; /* Wrap content on smaller screens */
+    gap: 1rem;
+}
+
+/* Footer sections */
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Left align logo and text */
+.footer-section.about {
+    text-align: left; /* Align text to the left */
+}
+
+/* Logo and Company Name */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between logo and text */
+}
+
+.footer-logo {
+    width: 50px; /* Adjust size */
+    height: auto;
+}
+
+.company-name {
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* Paragraph text */
+.about p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-top: 1rem;
+}
+
+/* Contact Section */
+.footer-section.contact {
+    margin-top: 1.5rem;
+    text-align: right; /* Keep contact info aligned to the right */
+}
+
+.footer-section.contact a {
+    font-size: 1.5rem; /* Maintain current font size */
+    text-decoration: none; /* Keep no underline on the text */
+    color: #fff; /* Keep the original text color */
+    display: inline; /* Ensure the clickable area is only the text */
+    padding: 0; /* Remove any padding that might increase the clickable area */
+    margin: 0; /* Ensure no extra margin around the text */
+}
+
+.footer-section.contact a:hover {
+    color: #636060; /* Keep the hover color as is */
+}
+
+/* Bottom footer section */
+.footer-bottom {
+    border-top: 1px solid #333; /* Line color */
+    padding-top: 1rem;
+    margin-top: 1rem;
+    text-align: center; /* Center align text */
+    font-size: 0.9rem;
+    color: #b3b3b3;
+    width: 100%; /* Ensure full width */
+    margin: 0; /* Remove any extra margin */
+    box-sizing: border-box;
+}
+
+/* Responsive Design */
+
+/* Tablet and Small Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center;
+        gap: 1rem; /* Add spacing between stacked items */
+        text-align: center; /* Center align all content */
+    }
+
+    .footer-section.about,
+    .footer-section.contact {
+        text-align: center; /* Center align text */
+        margin-top: 1rem; /* Add spacing between sections */
+    }
+
+    .footer-section.contact {
+        margin-top: 1.5rem; /* Add extra space for contact section */
+    }
+
+    .footer-logo {
+        width: 40px; /* Reduce logo size for smaller screens */
+    }
+
+    .company-name {
+        font-size: 1.5rem; /* Adjust font size */
+    }
+
+    .about p {
+        font-size: 0.9rem; /* Adjust paragraph text size */
+        line-height: 1.3; /* Reduce line height slightly */
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem; /* Reduce footer bottom font size */
+        text-align: center; /* Center align copyright text */
+        margin: 0; /* Remove any extra margin */
+    }
+}
+
+/* Phones and Very Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .footer {
+        padding: 1rem; /* Reduce padding */
+    }
+
+    .footer-logo {
+        width: 35px; /* Smaller logo for smaller screens */
+    }
+
+    .footer-bottom {
+        font-size: 0.7rem;
+        margin: 0; /* Remove any extra margin */
+    }
+}
