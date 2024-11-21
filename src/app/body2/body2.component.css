@@ -1,0 +1,152 @@
+/* Grid Section Wrapper */
+.grid-section {
+    background-color: #142f32; /* Green background */
+    padding: 60px 0; /* Vertical padding for spacing */
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .title {
+    text-align: center;
+    color: #fff;
+    font-size: 2.8rem; /* Balanced font size */
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  
+  .subtitle {
+    text-align: center;
+    color: #b3b3b3;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+  
+  /* Grid Container */
+  .tools {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 30px; /* Balanced spacing */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Grid Items */
+  .box {
+    background-color: #1b4045;
+    color: white;
+    display: flex;
+    flex-direction: column; /* Stack icon and content vertically */
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    height: 180px; /* Reduced box height */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  
+  /* Icon Styling */
+  .icon {
+    font-size: 2rem;
+    color: #4ac4aa;
+    margin-bottom: 10px; /* Reduce spacing under icon */
+  }
+  
+  /* Content Styling */
+  .content {
+    text-align: left;
+    flex: 1;
+  }
+  
+  .content h3 {
+    font-size: 1.3rem; /* Adjusted font size */
+    font-weight: 600;
+    margin: 0 0 8px; /* Reduced margin below title */
+  }
+  
+  .content p {
+    font-size: 0.9rem; /* Smaller text for descriptions */
+    color: #b3b3b3;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  /* 10th Box - Full Row */
+  .box:nth-child(10) {
+    grid-column: span 3; /* Full row span */
+    height: 150px; /* Reduced height for the 10th box */
+    text-align: center; /* Center-align text */
+    justify-content: center; /* Center content vertically */
+    align-items: center;
+  }
+  
+  /* Hover Effects */
+  .box:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .tools {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+      gap: 20px;
+    }
+  
+    .box {
+      height: 150px; /* Reduced height for smaller screens */
+      padding: 15px;
+    }
+  
+    .icon {
+      font-size: 1.8rem;
+    }
+  
+    .content h3 {
+      font-size: 1.2rem;
+    }
+  
+    .content p {
+      font-size: 0.8rem;
+    }
+  
+    .box:nth-child(10) {
+      grid-column: span 2; /* Full width in a 2-column layout */
+      height: 130px; /* Further reduce height for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tools {
+      grid-template-columns: 1fr; /* Single column for mobile */
+      gap: 15px;
+    }
+  
+    .box {
+      height: 140px; /* Smaller height for mobile */
+      padding: 10px;
+    }
+  
+    .icon {
+      font-size: 1.5rem;
+    }
+  
+    .content h3 {
+      font-size: 1.1rem;
+    }
+  
+    .content p {
+      font-size: 0.8rem;
+    }
+  
+    .box:nth-child(10) {
+      grid-column: span 1;
+      height: 120px; /* Minimal height for the last box */
+    }
+  }
+  
