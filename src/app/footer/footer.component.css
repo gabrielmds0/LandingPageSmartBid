@@ -14,11 +14,11 @@ body > *:not(.footer) {
 
 /* Footer Styling */
 .footer {
+    margin-top: 20px;
     background-color: #171b1d; /* Dark background */
     color: #b3b3b3; /* Light grey text color */
     padding: 2rem 1rem;
     width: 100%; /* Ensure full width */
-    margin: 0; /* Remove any margin */
     box-sizing: border-box; /* Include padding and border in width calculation */
     font-family: Arial, sans-serif;
 }
