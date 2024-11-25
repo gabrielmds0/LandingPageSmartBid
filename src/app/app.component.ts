@@ -20,14 +20,7 @@ export class AppComponent implements OnInit
   title = 'lp-smartbid';
   constructor(private firestore:  Firestore) {
   }
-  public async ngOnInit(): Promise<void> {
-    const emailCollection = collection(this.firestore, 'email');
-    try {
-      await addDoc(emailCollection, { text: "pedrolvianaviadoa@gmail.com" });
-      console.log("E-mail armazenado com sucesso!");
-    }
-    catch (error) {
-      console.error("Erro ao armazenar e-mail: ", error);
-    }
+  public ngOnInit(): void {
+    console.log("AppComponent initialized");
   }
 }

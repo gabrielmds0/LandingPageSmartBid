@@ -1,8 +1,6 @@
-import { Component , ViewChild, inject } from '@angular/core';
-import { Firestore } from '@angular/fire/firestore';
-import { addDoc, collection } from 'firebase/firestore';
-import { NgForm } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { Component, ViewChild, inject } from '@angular/core';
+import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import { NgForm, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -12,27 +10,48 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  @ViewChild ("saveForm") waitlistForm : any;
   firestore: Firestore = inject(Firestore);
+  // Objeto para armazenar os dados do formulário
+  formData = {
+    fullname: '',
+    phone: '',
+    email: ''
+  };
 
-  saveData(): void {
-    const acollection = collection(this.firestore, 'waitlist');
-    addDoc(acollection, {
-      'fullname': this.waitlistForm.value.fullname,
-      'phone': this.waitlistForm.value.phone,
-      'email': this.waitlistForm.value.email,
-    })
+  @ViewChild('saveForm') waitlistForm!: NgForm; // Tipo correto para referenciar o formulário
+
+  async saveData(): Promise<void> {
+    try {
+      console.log('Saving data:', this.formData); // Log para verificar os dados
+      const acollection = collection(this.firestore, 'waitlist');
+      const docRef = await addDoc(acollection, this.formData);
+      console.log('Data saved successfully with ID:', docRef.id);
+      alert('Data saved successfully!');
+    }
+    catch (error) {
+      console.error('Error saving data to Firestore:', error);
+      alert('Failed to save data. Please try again.');
+    }
   }
-  resetForm():void {
-    this.waitlistForm.reset({
-      'fullname':'',
-      'phone':'',
-      'email':'',
-      
-    })
+
+  resetForm(): void {
+    if (this.waitlistForm) {
+      console.log('Resetting form...');
+      this.waitlistForm.resetForm({
+        fullname: '',
+        phone: '',
+        email: ''
+      });
+      console.log('Form reset complete');
+    } else {
+      console.error('Form reference (waitlistForm) not found');
+    }
   }
-  submitForm():void {
-    alert(this.waitlistForm.value.fullname);
+
+  submitForm(event: Event): void {
+    event.preventDefault(); // Previne o comportamento padrão
+    console.log('submitForm called');
+    console.log('Form data:', this.formData);
     this.saveData();
     this.resetForm();
   }
