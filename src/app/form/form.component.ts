@@ -1,34 +1,39 @@
-import { Component } from '@angular/core';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { Component , ViewChild, inject } from '@angular/core';
+import { Firestore } from '@angular/fire/firestore';
+import { addDoc, collection } from 'firebase/firestore';
+import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [ FormsModule ],
+  imports: [FormsModule],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  formData = {
-    fullname: '',
-    phone: '',
-    email: ''
-  };
+  @ViewChild ("saveForm") waitlistForm : any;
+  firestore: Firestore = inject(Firestore);
 
-  constructor(private firestore: Firestore) {}
-
-  async onSubmit() {
-    try {
-      const collectionRef = collection(this.firestore, 'waitlist');
-      const docRef = await addDoc(collectionRef, this.formData);
-      console.log('Document added with ID:', docRef.id);
-      alert('Thank you for joining the waitlist!');
-      this.formData = { fullname: '', phone: '', email: '' }; // Reset the form
-    }
-    catch (error) {
-      console.error('Error adding document:', error);
-      alert('Error submitting the form. Please try again.');
-    }
+  saveData(): void {
+    const acollection = collection(this.firestore, 'waitlist');
+    addDoc(acollection, {
+      'fullname': this.waitlistForm.value.fullname,
+      'phone': this.waitlistForm.value.phone,
+      'email': this.waitlistForm.value.email,
+    })
+  }
+  resetForm():void {
+    this.waitlistForm.reset({
+      'fullname':'',
+      'phone':'',
+      'email':'',
+      
+    })
+  }
+  submitForm():void {
+    alert(this.waitlistForm.value.fullname);
+    this.saveData();
+    this.resetForm();
   }
 }
