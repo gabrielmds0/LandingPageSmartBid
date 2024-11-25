@@ -23,7 +23,7 @@ export class AppComponent implements OnInit
   public async ngOnInit(): Promise<void> {
     const emailCollection = collection(this.firestore, 'email');
     try {
-      await addDoc(emailCollection, { text: "vinilean@gmail.com" });
+      await addDoc(emailCollection, { text: "pedrolvianaviadoa@gmail.com" });
       console.log("E-mail armazenado com sucesso!");
     }
     catch (error) {
