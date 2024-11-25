@@ -1,58 +1,49 @@
-import { Component, ViewChild, inject } from '@angular/core';
-import { Firestore, addDoc, collection } from '@angular/fire/firestore';
-import { NgForm, FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Firestore, getFirestore, collection, addDoc } from 'firebase/firestore';
+import { firebaseApp } from '../../firebase.config'; // Adjust as needed
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // Import this module for *ngIf
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [FormsModule],
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  imports: [
+    ReactiveFormsModule, // For reactive forms
+    CommonModule // Required for *ngIf
+  ]
 })
 export class FormComponent {
-  firestore: Firestore = inject(Firestore);
-  // Objeto para armazenar os dados do formulário
-  formData = {
-    fullname: '',
-    phone: '',
-    email: ''
-  };
+  form: FormGroup;
+  firestore: Firestore;
 
-  @ViewChild('saveForm') waitlistForm!: NgForm; // Tipo correto para referenciar o formulário
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      fullname: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
+    });
 
-  async saveData(): Promise<void> {
-    try {
-      console.log('Saving data:', this.formData); // Log para verificar os dados
-      const acollection = collection(this.firestore, 'waitlist');
-      const docRef = await addDoc(acollection, this.formData);
-      console.log('Data saved successfully with ID:', docRef.id);
-      alert('Data saved successfully!');
-    }
-    catch (error) {
-      console.error('Error saving data to Firestore:', error);
-      alert('Failed to save data. Please try again.');
-    }
+    // Initialize Firestore
+    this.firestore = getFirestore(firebaseApp);
   }
 
-  resetForm(): void {
-    if (this.waitlistForm) {
-      console.log('Resetting form...');
-      this.waitlistForm.resetForm({
-        fullname: '',
-        phone: '',
-        email: ''
-      });
-      console.log('Form reset complete');
-    } else {
-      console.error('Form reference (waitlistForm) not found');
+  async onSubmit(): Promise<void> {
+    if (this.form.valid) {
+      try {
+        const collectionRef = collection(this.firestore, 'submissions');
+        await addDoc(collectionRef, this.form.value);
+        this.form.reset();
+      }
+      catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Failed to submit the form. Please try again.');
+      }
     }
-  }
-
-  submitForm(event: Event): void {
-    event.preventDefault(); // Previne o comportamento padrão
-    console.log('submitForm called');
-    console.log('Form data:', this.formData);
-    this.saveData();
-    this.resetForm();
+    else {
+      alert('Please fill out the form correctly before submitting.');
+    }
   }
 }
