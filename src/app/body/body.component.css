@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f2f0ef;
-
 }
 
 .main {
@@ -13,15 +12,16 @@ body {
     justify-content: center;
 }
 
-#value{
-    margin-left: 40px;
+#value {
+  text-align: center;
     font-size: 50px;
-    width: 1000px;         /* Set a fixed width for wrapping */
+    width: 100%; /* Adjust width to be responsive */
+    max-width: 1000px; /* Limit maximum width */
 }
 
-#catch{
+#catch {
     font-size: 25px;
-    color: rgb(63, 62, 62)
+    color: rgb(63, 62, 62);
 }
 
 .cta {
@@ -34,7 +34,6 @@ body {
     font-weight: bold;
     font-size: large;
     cursor: pointer;
-
 }
 
 .cta:hover {
@@ -42,126 +41,190 @@ body {
     border-radius: 20px;
     background-color: rgb(32, 124, 96);
     color: black;
-    padding: 10px;
-    font-size: large;
 }
-/* Container styling for cards */
+
+/* Card container styling */
 .card-container {
-    display: flex; /* Align cards in a row */
-    justify-content: space-between; 
-    align-items: flex-end;
+    display: flex;
     flex-wrap: wrap; /* Allow wrapping for responsiveness */
-    gap: 1rem; /* Add space between cards */
-    padding: 2rem; /* Add padding around the container */
+    gap: 1rem; /* Add spacing between cards */
+    justify-content: center;
+    padding: 2rem;
     background-color: #f2f0ef;
-  }
-  
-  /* General card styling */
-  .card {
+}
+
+/* General card styling */
+.card {
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 200px;
     height: 250px;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
-  
-  /* Card with an image */
-  .card-image {
+
+/* Image inside card */
+.card-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image fills the card and maintains its aspect ratio */
-    position: absolute; /* Make the image fill the entire card */
+    object-fit: cover;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 0; /* Position the image behind the content */
-  }
-    /* Typography for card content */
+    z-index: 0;
+}
+
+/* Card text styling */
 .card p {
-    font-size: 2rem;
+    font-size: 1.2rem;
     color: #fff;
     line-height: 1.4;
     margin: 0.5rem 0;
-  }
-  
-  /* Specific heading style in cards */
-  .card h2 {
-    font-size: 2rem;
-    color: #fff;
-    margin: 0.5rem 0;
-  }
+}
 
-  .card:nth-child(2) h2{
-    font-size: 3rem;
-    font-weight: 900;
+.card h2 {
+    font-size: 1.8rem;
     color: #fff;
     margin: 0.5rem 0;
 }
-  
-  /* Example color differentiation for unique cards */
-  .card:nth-child(2) {
-    background: rgb(5, 87, 75); /* Light blue background */
+
+/* Specific card styles */
+.card:nth-child(2) {
+    background: rgb(5, 87, 75);
     width: 250px;
     height: 300px;
-  }
-  
-  .card:nth-child(3) {
-    background: #fff; /* Light green background */
-    width: 300px;
-    
-  }
+}
 
-  .card:nth-child(3) h2{
+.card:nth-child(3) {
+    background: #fff;
+    width: 300px;
+}
+
+.card:nth-child(3) h2 {
     color: #000000;
     font-weight: 700;
-  }
-  
-  .card:nth-child(4) {
-    background: #d1ffbd; /* Dark background */
+}
+
+.card:nth-child(4) {
+    background: #d1ffbd;
     width: 250px;
     height: 300px;
 }
 
 .card:nth-child(4) p {
- color: #000000;
-    /* Explicitly set text color for paragraphs */
-}
-.card:nth-child(4) h2{
     color: #000000;
-    font-size: 3rem;
-    font-weight: 900;
-  }
+}
+
+.card:nth-child(4) h2 {
+    color: #000000;
+    font-size: 2rem;
+    font-weight: 700;
+}
 
 .card-container .card:nth-child(1) {
     height: 400px;
-    width: 250px; /* Increased width */
-    margin-top: -50px; 
-}
-
-/* Increase the size of the last card */
-.card-container .card:last-child {
-    background: #142f32; 
-    width: 250px; 
-    height: 400px; 
-    margin-top: -50px;
-}
-.card:last-child p{
-    color: #fff; 
-
-}
-
-
-
-.predio{
-    margin-top: 30px;
-    margin-left: 60px;
-    height: 400px;
     width: 250px;
-    border-radius: 50px;
+    margin-top: 0; /* Remove negative margin */
+}
+
+.card-container .card:last-child {
+    background: #142f32;
+    width: 250px;
+    height: 400px;
+    margin-top: 1rem; /* Adjust spacing */
+}
+
+.card:last-child p {
+    color: #fff;
+}
+
+/* Responsive Design */
+
+/* Tablet and Medium Devices */
+@media (max-width: 768px) {
+    #value {
+        font-size: 40px;
+        width: 90%; /* Use most of the available width */
+        margin-left: 0;
+    }
+
+    .cta {
+        font-size: medium;
+        padding: 8px;
+    }
+
+    .card-container {
+        gap: 1.5rem;
+        justify-content: center; /* Ensure cards are centered */
+    }
+
+    .card {
+        width: 180px;
+        height: 220px;
+    }
+
+    .card:nth-child(2),
+    .card:nth-child(4) {
+        width: 200px;
+        height: 250px;
+    }
+
+    .card-container .card:nth-child(1) {
+        margin-top: 1rem; /* Push the first card below the button */
+    }
+
+    .card h2 {
+        font-size: 1.6rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+}
+
+/* Phones and Small Devices */
+@media (max-width: 480px) {
+    #value {
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .cta {
+        font-size: small;
+        padding: 6px;
+    }
+
+    .card-container {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .card {
+        width: 160px;
+        height: 200px;
+    }
+
+    .card:nth-child(2),
+    .card:nth-child(4) {
+        width: 180px;
+        height: 220px;
+    }
+
+    .card-container .card:nth-child(1) {
+        margin-top: 1.5rem; /* Further spacing for small screens */
+    }
+
+    .card h2 {
+        font-size: 1.4rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
 }
