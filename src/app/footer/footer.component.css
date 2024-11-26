@@ -14,7 +14,7 @@ body > *:not(.footer) {
 
 /* Footer Styling */
 .footer {
-    margin-top: 20px;
+    margin-top: 0; /* Remove extra margin to avoid gaps */
     background-color: #171b1d; /* Dark background */
     color: #b3b3b3; /* Light grey text color */
     padding: 2rem 1rem;
@@ -91,17 +91,20 @@ body > *:not(.footer) {
 .footer-bottom {
     border-top: 1px solid #333; /* Line color */
     padding-top: 1rem;
-    margin-top: 1rem;
+    margin: 0; /* Remove any extra margin */
     text-align: center; /* Center align text */
     font-size: 0.9rem;
     color: #b3b3b3;
     width: 100%; /* Ensure full width */
-    margin: 0; /* Remove any extra margin */
     box-sizing: border-box;
 }
 
-/* Responsive Design */
 
+.section {
+    padding-bottom: 0; /* Ensure no extra padding at the bottom of the section */
+}
+
+/* Responsive Design */
 /* Tablet and Small Devices (max-width: 768px) */
 @media (max-width: 768px) {
     .footer-content {

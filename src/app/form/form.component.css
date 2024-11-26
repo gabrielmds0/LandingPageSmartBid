@@ -1,16 +1,20 @@
-/* Section Wrapper */
+body, html {
+  margin: 0;
+  padding: 0;
+}/* Section Wrapper */
 /* Section Wrapper */
 .section {
-    background-color: #142f32; /* Base green background */
-    background-image: 
-      linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
-      linear-gradient(225deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%);
-    background-size: 50px 50px; /* Define smaller grid size */
-    background-position: 0 0, 25px 25px; /* Offset the second layer for grid effect */
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-  }
+  background-color: #142f32;
+  background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  margin: 0; /* Ensure no margin below the section */
+}
   
   
   /* Title Styling */
@@ -34,14 +38,15 @@
   }
   
   /* Form Styling */
-  .waitlist-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #1b4045; /* Darker green background for form */
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
-  }
+/* Form Styling */
+.waitlist-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1b4045;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
   
   /* Form Group */
   .form-group {

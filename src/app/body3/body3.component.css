@@ -1,0 +1,97 @@
+.key-benefits-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #f8f9fb;
+  }
+  
+  .container {
+    display: flex;
+    max-width: 1200px;
+    gap: 50px;
+    width: 100%;
+  }
+  
+  .left-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .stats-image {
+    width: 100%; /* Make the image responsive */
+    max-width: 500px; /* Adjust the maximum width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 12px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  }
+  
+  .right-content {
+    flex: 1.5;
+  }
+  
+  .right-content h1 {
+    font-size: 2rem;
+    color: #000;
+    margin-bottom: 15px;
+  }
+  
+  .right-content p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .right-content ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .right-content ul li {
+    margin-bottom: 20px;
+  }
+  
+  .right-content ul li h3 {
+    font-size: 1.2rem;
+    color: #000;
+    margin-bottom: 5px;
+  }
+  
+  .right-content ul li p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      gap: 30px;
+    }
+  
+    .right-content ul li h3 {
+      font-size: 1.1rem;
+    }
+  
+    .right-content ul li p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stats-image {
+      max-width: 100%; /* Allow the image to shrink for smaller screens */
+    }
+  
+    .right-content h1 {
+      font-size: 1.5rem;
+    }
+  
+    .right-content p {
+      font-size: 1rem;
+    }
+  }
+  
