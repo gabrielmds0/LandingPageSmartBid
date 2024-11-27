@@ -1,25 +1,25 @@
 <section class="section">
-    <h1>Receba as novidades</h1>
-    <p>Preencha o formulário abaixo para garantir sua vaga. Entraremos em contato com mais detalhes!</p>
-    
-    <form class="waitlist-form">
-      <div class="form-group">
-        <label for="name">Nome Completo</label>
-        <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required />
-      </div>
-      
-      <div class="form-group">
-        <label for="phone">Telefone</label>
-        <input type="tel" id="phone" name="phone" placeholder="Digite seu número de telefone" required />
-      </div>
-      
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu endereço de email" required />
-      </div>
-      
-      
-      <button type="submit">Inscrever-se</button>
-    </form>
-  </section>
+  <h1>Join Our Waitlist</h1>
+  <p>Fill out the form below to secure your spot. We will reach out with further details!</p>
+
+  <form class="waitlist-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="fulname">Name</label>
+      <input type="text" id="fullname" name="fullname" formControlName="fullname" placeholder="Enter your full name" required/>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" formControlName="phone" placeholder="Enter your phone number" required/>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" formControlName="email" placeholder="Enter your email" required/>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Join Waitlist</button>
+  </form>
+</section>
   
