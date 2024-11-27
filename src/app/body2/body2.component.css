@@ -54,7 +54,15 @@
   .icon {
     font-size: 2rem;
     color: #4ac4aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 10px; /* Reduce spacing under icon */
+  }
+  .icon svg {
+    width: 40px;
+    height: 40px;
+
   }
   
   /* Content Styling */
@@ -79,11 +87,37 @@
   /* 10th Box - Full Row */
   .box:nth-child(10) {
     grid-column: span 3; /* Full row span */
-    height: 150px; /* Reduced height for the 10th box */
-    text-align: center; /* Center-align text */
-    justify-content: center; /* Center content vertically */
-    align-items: center;
-  }
+    height: auto; /* Auto height to match other boxes */
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    justify-content: center; /* Match the alignment of other boxes */
+    align-items: left; /* Match left alignment of other boxes */
+    padding: 20px; /* Consistent padding with other boxes */
+    text-align: left; /* Align text to the left */
+    gap: 10px; /* Add spacing between elements inside the box */
+    background-color: #1b4045; /* Ensure it matches the other cards */
+    border-radius: 12px; /* Rounded corners for uniformity */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Uniform shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Consistent hover animation */
+   
+}
+
+.box:nth-child(10) p{
+  font-size: 25px;
+  margin-left: 40px;
+  margin-bottom: 5px;
+}
+.box:nth-child(10) h3{
+  font-size: 35px;
+  margin-left: 40px;
+}
+.box:nth-child(10) svg{
+  width: 60px;
+  height: 60px;
+  margin-left: 40px;
+}
+
+
   
   /* Hover Effects */
   .box:hover {
