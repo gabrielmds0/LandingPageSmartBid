@@ -1,186 +1,235 @@
 /* Grid Section Wrapper */
 .grid-section {
-    background-color: #142f32; /* Green background */
-    padding: 60px 0; /* Vertical padding for spacing */
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .title {
-    text-align: center;
-    color: #fff;
-    font-size: 2.8rem; /* Balanced font size */
-    font-weight: 600;
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-  
-  .subtitle {
-    text-align: center;
-    color: #b3b3b3;
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-bottom: 40px;
-  }
-  
-  /* Grid Container */
+  background-color: #142f32;
+  /* Green background */
+  padding: 60px 0;
+  /* Vertical padding for spacing */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: center;
+  color: #fff;
+  font-size: 2.8rem;
+  /* Balanced font size */
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.subtitle {
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+/* Grid Container */
+.tools {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 equal columns */
+  gap: 30px;
+  /* Balanced spacing */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Grid Items */
+.box {
+  background-color: #1b4045;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* Stack icon and content vertically */
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  height: 180px;
+  /* Reduced box height */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Icon Styling */
+.icon {
+  font-size: 2rem;
+  color: #4ac4aa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  /* Reduce spacing under icon */
+}
+
+.icon svg {
+  width: 40px;
+  height: 40px;
+
+}
+
+/* Content Styling */
+.content {
+  text-align: left;
+  flex: 1;
+}
+
+.content h3 {
+  font-size: 1.3rem;
+  /* Adjusted font size */
+  font-weight: 600;
+  margin: 0 0 8px;
+  /* Reduced margin below title */
+}
+
+.content p {
+  font-size: 0.9rem;
+  /* Smaller text for descriptions */
+  color: #b3b3b3;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.box:nth-child(10) {
+  grid-column: span 3;
+  /* Spans all 3 columns */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #1b4045;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  gap: 10px;
+  /* Space between elements */
+  text-align: left;
+}
+
+/* Content Styling for 10th Box */
+.box:nth-child(10) h3 {
+  font-size: 1.5rem;
+  /* Larger title font */
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.box:nth-child(10) p {
+  font-size: 1rem;
+  /* Slightly larger text */
+  line-height: 1.5;
+  color: #b3b3b3;
+}
+
+.box:nth-child(10) svg {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  /* Space below the icon */
+}
+
+
+/* Hover Effects */
+.box:hover {
+  transform: translateY(-5px);
+  /* Subtle lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Enhanced shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .tools {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 30px; /* Balanced spacing */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns for tablets */
+    gap: 20px;
   }
-  
-  /* Grid Items */
+
   .box {
-    background-color: #1b4045;
-    color: white;
-    display: flex;
-    flex-direction: column; /* Stack icon and content vertically */
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 20px;
-    height: 180px; /* Reduced box height */
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+    height: 150px;
+    /* Reduced height for smaller screens */
+    padding: 15px;
   }
-  
-  /* Icon Styling */
+
   .icon {
-    font-size: 2rem;
-    color: #4ac4aa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px; /* Reduce spacing under icon */
+    font-size: 1.8rem;
   }
-  .icon svg {
+
+  .content h3 {
+    font-size: 1.2rem;
+  }
+
+  .content p {
+    font-size: 0.8rem;
+  }
+
+  .box:nth-child(10) {
+    grid-column: span 2;
+    /* Spans two columns on tablets */
+  }
+
+  .box:nth-child(10) h3 {
+    font-size: 1.3rem;
+    /* Adjust title size for tablets */
+  }
+
+  .box:nth-child(10) p {
+    font-size: 0.9rem;
+  }
+
+  .box:nth-child(10) svg {
     width: 40px;
     height: 40px;
+  }
 
+}
+
+@media (max-width: 480px) {
+  .tools {
+    grid-template-columns: 1fr;
+    /* Single column for mobile */
+    gap: 15px;
   }
-  
-  /* Content Styling */
-  .content {
-    text-align: left;
-    flex: 1;
+
+  .box {
+    height: 140px;
+    /* Smaller height for mobile */
+    padding: 10px;
   }
-  
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
   .content h3 {
-    font-size: 1.3rem; /* Adjusted font size */
-    font-weight: 600;
-    margin: 0 0 8px; /* Reduced margin below title */
+    font-size: 1.1rem;
   }
-  
+
   .content p {
-    font-size: 0.9rem; /* Smaller text for descriptions */
-    color: #b3b3b3;
-    line-height: 1.4;
-    margin: 0;
+    font-size: 0.8rem;
   }
-  
-  /* 10th Box - Full Row */
+
   .box:nth-child(10) {
-    grid-column: span 3; /* Full row span */
-    height: auto; /* Auto height to match other boxes */
-    display: flex;
-    flex-direction: column; /* Align content vertically */
-    justify-content: center; /* Match the alignment of other boxes */
-    align-items: left; /* Match left alignment of other boxes */
-    padding: 20px; /* Consistent padding with other boxes */
-    text-align: left; /* Align text to the left */
-    gap: 10px; /* Add spacing between elements inside the box */
-    background-color: #1b4045; /* Ensure it matches the other cards */
-    border-radius: 12px; /* Rounded corners for uniformity */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Uniform shadow effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Consistent hover animation */
-   
-}
-
-.box:nth-child(10) p{
-  font-size: 25px;
-  margin-left: 40px;
-  margin-bottom: 5px;
-}
-.box:nth-child(10) h3{
-  font-size: 35px;
-  margin-left: 40px;
-}
-.box:nth-child(10) svg{
-  width: 60px;
-  height: 60px;
-  margin-left: 40px;
-}
-
-
-  
-  /* Hover Effects */
-  .box:hover {
-    transform: translateY(-5px); /* Subtle lift on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    grid-column: span 1; /* Spans one column on mobile */
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .tools {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-      gap: 20px;
-    }
-  
-    .box {
-      height: 150px; /* Reduced height for smaller screens */
-      padding: 15px;
-    }
-  
-    .icon {
-      font-size: 1.8rem;
-    }
-  
-    .content h3 {
-      font-size: 1.2rem;
-    }
-  
-    .content p {
-      font-size: 0.8rem;
-    }
-  
-    .box:nth-child(10) {
-      grid-column: span 2; /* Full width in a 2-column layout */
-      height: 130px; /* Further reduce height for smaller screens */
-    }
+
+  .box:nth-child(10) h3 {
+    font-size: 1.2rem; /* Adjust title size for mobile */
   }
-  
-  @media (max-width: 480px) {
-    .tools {
-      grid-template-columns: 1fr; /* Single column for mobile */
-      gap: 15px;
-    }
-  
-    .box {
-      height: 140px; /* Smaller height for mobile */
-      padding: 10px;
-    }
-  
-    .icon {
-      font-size: 1.5rem;
-    }
-  
-    .content h3 {
-      font-size: 1.1rem;
-    }
-  
-    .content p {
-      font-size: 0.8rem;
-    }
-  
-    .box:nth-child(10) {
-      grid-column: span 1;
-      height: 120px; /* Minimal height for the last box */
-    }
+
+  .box:nth-child(10) p {
+    font-size: 0.85rem;
   }
-  
+
+  .box:nth-child(10) svg {
+    width: 35px;
+    height: 35px;
+  }
+}
