@@ -51,6 +51,7 @@ body {
     justify-content: center;
     padding: 2rem;
     background-color: #f2f0ef;
+    align-items: flex-end; /* Align items at the bottom */
 }
 
 /* General card styling */
@@ -112,21 +113,27 @@ body {
 }
 
 .card:nth-child(4) {
-    background: #d1ffbd;
+    background: none; /* Remove the background color */
+    position: relative;
     width: 250px;
     height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px; /* Maintain rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional box shadow */
 }
 
-.card:nth-child(4) p {
-    color: #000000;
+/* Image styling */
+.card:nth-child(4) .card-image-overlay {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px; /* Ensure image respects card's border radius */
 }
 
-.card:nth-child(4) h2 {
-    color: #000000;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
+/* Adjust card positioning and ensure cards align at the bottom */
 .card-container .card:nth-child(1) {
     height: 400px;
     width: 250px;
