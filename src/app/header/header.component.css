@@ -1,118 +1,61 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: #f2f4f4;
-}
-
-
+/* Header container */
 .header {
-    display: flex;              /* Enable Flexbox */
-    justify-content: space-between; /* Space out Left and Right sections */
-    align-items: center;        /* Align items vertically center */
-    padding: 1rem 4rem;
-    
+    position: fixed; /* Fix header at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Center the logo and title as a group */
+    align-items: center; /* Align items vertically */
+    padding: 1rem 2rem;
+    background-color: #f2f0ef; /* Ensure a consistent background */
+    box-shadow: none; /* No shadow by default */
+    z-index: 1000; /* High z-index ensures it's above other content */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    gap: 10px; /* Space between logo and title */
 }
 
-.Right, .Left {
-    display: flex;              /* Make child elements in Right and Left also flex */
-    align-items: center;        /* Align items vertically center */
-    gap: 20px;                  /* Space between items inside Right and Left */
+/* Logo image */
+.logo {
+    height: 40px; /* Fixed height for consistency */
+    width: auto; /* Maintain aspect ratio */
 }
 
-
+/* Title Styling */
 .title {
-    margin-left: 0.5rem;
-    font-size: 45px;        /* Space between logo and title */
-}
-
-.subs{
-    font-size: 25px;
-    cursor: pointer;
-}
-
-#waitlist {
-    border: 5px solid rgb(5, 87, 75);          /* Initial border color */
-    border-radius: 10px;                       /* Rounded corners */
-    background-color: rgba(5, 87, 75);    /* Initial background color */
-    color:aliceblue;                   /* Initial text color */
-    padding: 10px;                             /* Padding for spacing */
-    transition: all 0.3s ease;                 /* Smooth transition for all properties */
-}
-
-#waitlist:hover {
-    border: 5px solid  rgb(32, 124, 96);      /* Lighter border color on hover */
-    background-color:  rgb(32, 124, 96);/* Slightly transparent background */
-    color: black;                              /* Darker text color on hover */
+    font-size: 36px;
+    margin: 0;
+    white-space: nowrap; /* Prevent wrapping */
 }
 
 /* Responsive Design */
 
-/* Tablet and Small Devices (max-width: 768px) */
+/* Tablet screens (max-width: 768px) */
 @media (max-width: 768px) {
     .header {
-        flex-direction: column; /* Stack the Left and Right sections vertically */
-        align-items: center; /* Center align all elements */
-        padding: 1rem 2rem; /* Reduce padding for smaller screens */
-    }
-
-    .Right, .Left {
-        justify-content: center; /* Center-align the sections horizontally */
-        gap: 15px; /* Reduce spacing between items */
+        justify-content: flex-start; /* Align logo and title to the left */
+        gap: 15px; /* Increase gap slightly for readability */
     }
 
     .title {
-        font-size: 35px; /* Adjust title size for tablets */
-    }
-
-    #waitlist {
-        font-size: 16px; /* Reduce font size of the button */
-        padding: 8px 15px; /* Adjust padding for smaller buttons */
+        font-size: 30px; /* Reduce title size for smaller screens */
     }
 }
 
-/* Phones and Very Small Devices (max-width: 480px) */
+/* Mobile screens (max-width: 480px) */
 @media (max-width: 480px) {
     .header {
-        padding: 1rem; /* Further reduce padding */
-    }
-
-    .Right, .Left {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center align items */
-        gap: 10px; /* Reduce spacing between items */
+        flex-direction: row; /* Keep logo and title side by side */
+        justify-content: center; /* Center-align the group horizontally */
+        gap: 10px; /* Maintain small spacing */
+        padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
     }
 
     .title {
-        font-size: 28px; /* Further reduce title size */
+        font-size: 24px; /* Further reduce title size for small screens */
     }
 
-    #waitlist {
-        font-size: 14px; /* Adjust button font size for smaller devices */
-        padding: 6px 12px; /* Compact button size */
-    }
-}
-
-/* Default for Larger Devices (min-width: 769px) */
-@media (min-width: 769px) {
-    .header {
-        flex-direction: row; /* Keep sections side-by-side */
-        justify-content: space-between; /* Space out Left and Right sections */
-        padding: 1rem 4rem; /* Standard padding for desktops */
-    }
-
-    .Right, .Left {
-        flex-direction: row; /* Keep items in a row */
-        gap: 20px; /* Maintain spacing between items */
-    }
-
-    .title {
-        font-size: 45px; /* Larger title size */
-    }
-
-    #waitlist {
-        font-size: 20px; /* Standard button font size */
-        padding: 10px; /* Standard button padding */
+    .logo {
+        height: 30px; /* Reduce logo size for better layout */
     }
 }
-
-
