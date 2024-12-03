@@ -17,13 +17,13 @@
 
 /* Logo image */
 .logo {
-    height: 40px; /* Fixed height for consistency */
+    height: 30px; /* Fixed height for consistency */
     width: auto; /* Maintain aspect ratio */
 }
 
 /* Title Styling */
 .title {
-    font-size: 36px;
+    font-size: 20px;
     margin: 0;
     white-space: nowrap; /* Prevent wrapping */
 }
@@ -52,10 +52,14 @@
     }
 
     .title {
-        font-size: 24px; /* Further reduce title size for small screens */
+        font-size: 20px; /* Further reduce title size for small screens */
     }
 
     .logo {
-        height: 30px; /* Reduce logo size for better layout */
+        height: 20px; /* Reduce logo size for better layout */
     }
+}
+
+img{
+    height: 50px;
 }
