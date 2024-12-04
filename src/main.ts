@@ -3,6 +3,8 @@ import { FormComponent } from './app/form/form.component';
 import { provideHttpClient } from '@angular/common/http';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes'; // Import your routes
 import {
   getAnalytics,
   provideAnalytics,
@@ -22,6 +24,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 bootstrapApplication(FormComponent, {
   providers: [
     provideHttpClient(),
+    provideRouter(routes),
     provideFirebaseApp(() =>
       initializeApp({
         projectId: 'lpsmartbid',

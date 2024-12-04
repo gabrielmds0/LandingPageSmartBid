@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
@@ -11,15 +11,16 @@ import { Firestore, collection, addDoc} from "@angular/fire/firestore";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, BodyComponent, Body2Component, FormComponent, Body3Component],
+  imports: [ RouterOutlet, HeaderComponent, FooterComponent, BodyComponent, Body2Component, FormComponent, Body3Component, RouterLink, RouterLinkActive ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent implements OnInit
 {
   title = 'lp-smartbid';
-  constructor(private firestore:  Firestore) {
-  }
+  constructor(private firestore:  Firestore) {}
+
   public ngOnInit(): void {
     console.log("AppComponent initialized");
   }

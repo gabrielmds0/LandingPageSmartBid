@@ -5,6 +5,7 @@ import { firebaseApp } from '../../firebase.config'; // Adjust as needed
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // Import this module for *ngIf
 
+
 @Component({
   selector: 'app-form',
   standalone: true,
@@ -15,6 +16,8 @@ import { CommonModule } from '@angular/common'; // Import this module for *ngIf
     CommonModule // Required for *ngIf
   ]
 })
+
+
 export class FormComponent {
   form: FormGroup;
   firestore: Firestore;
@@ -25,7 +28,6 @@ export class FormComponent {
       phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     });
-
     // Initialize Firestore
     this.firestore = getFirestore(firebaseApp);
   }
