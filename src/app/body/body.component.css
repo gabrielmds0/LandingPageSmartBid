@@ -34,7 +34,7 @@ body {
 
 #catch {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     color: rgb(63, 62, 62);
     margin-top: 20px;
     text-align: center;
@@ -146,22 +146,21 @@ body {
 
 .card:nth-child(2) h2 {
     color: #ffffff;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 300;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 
 .card:nth-child(3) {
-    background: #7a7a7a;
-    
+    background: #fff;
     width: 300px;
 }
 
 .card:nth-child(3) h2 {
-    color: #ffffff;
+    color: #000000;
     font-size: 22px;
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 60px;
 }
 
@@ -223,8 +222,9 @@ body {
 .card-icon svg {
     width: 100%;
     height: 100%;
-    fill: #fff;
+    fill: #000000;
 }
+
 
 .card-icon2 svg {
     width: 100%;
@@ -234,12 +234,12 @@ body {
 
 .icon-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 5px; /* Spacing between icons */
     margin: 10px auto; /* Adjust vertical position */
     width: max-content; /* Ensure grid doesn't stretch */
     position: absolute;
-    top: 40px; /* Moves icons closer to the top of the card */
+    top: 30px; /* Moves icons closer to the top of the card */
     left: 50%;
     transform: translateX(-50%); /* Center-align the grid */
 }
@@ -262,9 +262,9 @@ body {
 
 .card:last-child h2 {
     font-weight: 300;
-    margin-top: 30%;
+    margin-top: 280px;
     color: #fff;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 /* Responsive Design */
