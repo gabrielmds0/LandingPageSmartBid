@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  Firestore,
-  getFirestore,
-  collection,
-  addDoc,
-} from 'firebase/firestore';
+import { Firestore, getFirestore, collection, addDoc } from 'firebase/firestore';
 import { firebaseApp } from '../../firebase.config'; // Adjust as needed
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // Import this module for *ngIf

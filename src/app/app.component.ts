@@ -5,7 +5,7 @@ import { BodyComponent } from './body/body.component';
 import { Body2Component } from './body2/body2.component';
 import { FormComponent } from './form/form.component';
 import { Body3Component } from './body3/body3.component';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
