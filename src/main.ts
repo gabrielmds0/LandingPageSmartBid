@@ -18,8 +18,9 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { AppComponent } from './app/app.component';
 
-bootstrapApplication(FormComponent, {
+bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
     provideFirebaseApp(() =>

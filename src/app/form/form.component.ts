@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Firestore, getFirestore, collection, addDoc } from 'firebase/firestore';
+import {
+  Firestore,
+  getFirestore,
+  collection,
+  addDoc,
+} from 'firebase/firestore';
 import { firebaseApp } from '../../firebase.config'; // Adjust as needed
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // Import this module for *ngIf
@@ -12,8 +17,8 @@ import { CommonModule } from '@angular/common'; // Import this module for *ngIf
   styleUrls: ['./form.component.css'],
   imports: [
     ReactiveFormsModule, // For reactive forms
-    CommonModule // Required for *ngIf
-  ]
+    CommonModule, // Required for *ngIf
+  ],
 })
 export class FormComponent {
   form: FormGroup;
@@ -23,7 +28,7 @@ export class FormComponent {
     this.form = this.fb.group({
       fullname: ['', Validators.required],
       phone: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
     });
 
     // Initialize Firestore
@@ -36,13 +41,11 @@ export class FormComponent {
         const collectionRef = collection(this.firestore, 'submissions');
         await addDoc(collectionRef, this.form.value);
         this.form.reset();
-      }
-      catch (error) {
+      } catch (error) {
         console.error('Error submitting form:', error);
         alert('Failed to submit the form. Please try again.');
       }
-    }
-    else {
+    } else {
       alert('Please fill out the form correctly before submitting.');
     }
   }
